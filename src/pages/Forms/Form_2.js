@@ -6,7 +6,7 @@ export default function Form_2() {
       <h2 className="h3 m-2">بخش دوم: نوع سازمان/شرکت خود را انتخاب کنید.</h2>
       <div class="row col-5">
         <form class="px-4" action="">
-          <div class="form-radio flex gap-2 ">
+          <div class="form-radio flex gap-2">
             <input
               class="form-radio flex gap-2-input"
               type="radio"

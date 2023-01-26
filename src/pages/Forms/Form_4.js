@@ -4,24 +4,21 @@ export default function Form_4() {
   return (
     <div className="page-section container flex w-3/5 items-center flex-col mx-auto my-5 p-5 border-2 border-solid border-gray-500 border-opacity-30 rounded-md">
       <h2 className="h3 m-2">
-        بخش اول: ویژگی های عمومی که از یک نرم افزار مدیریت پروژه های معماری
-        سازمانی انتظار دارید را انتخاب کنید.
+        بخش آخر: فاکتورهای کلیدی که در خرید نرم افزار برای شما اهمیت دارد را
+        انتخاب کنید.
       </h2>
       <div class="row col-5">
-        <h4 class="fw-bold text-center mt-3"></h4>
         <form class="px-4" action="">
-          <small class="fw-bold">
-            (می توانید یک گزینه یا بیشتر انتخاب کنید)
-          </small>
           <div class="form-check flex gap-2">
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="factor"
+              value="function"
+              id="function"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault">
-              مخزن / متامدل
+            <label class="form-check flex gap-2-label" for="function">
+              عملکرد محصول
             </label>
           </div>
 
@@ -29,11 +26,12 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault2"
+              name="factor"
+              value="breadth"
+              id="breadth"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault2">
-              مدل سازی
+            <label class="form-check flex gap-2-label" for="breadth">
+              وسعت خدمات
             </label>
           </div>
 
@@ -41,11 +39,12 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="factor"
+              value="total_cost"
+              id="total_cost"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              تجزیه و تحلیل و کمک به تصمیم گیری
+            <label class="form-check flex gap-2-label" for="total_cost">
+              هزینه کلی
             </label>
           </div>
 
@@ -53,11 +52,12 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="factor"
+              value="powerfull_users"
+              id="powerfull_users"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              قابلیت ارائه
+            <label class="form-check flex gap-2-label" for="powerfull_users">
+              جامعه کاربری قوی
             </label>
           </div>
 
@@ -65,11 +65,12 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="factor"
+              value="customer"
+              id="customer"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              قابلیت مدیریت
+            <label class="form-check flex gap-2-label" for="customer">
+              مشتری مداری قوی
             </label>
           </div>
 
@@ -77,11 +78,12 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="factor"
+              value="relation"
+              id="relation"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              قابلیت پیکربندی
+            <label class="form-check flex gap-2-label" for="relation">
+              روابط از قبل موجود
             </label>
           </div>
 
@@ -89,11 +91,12 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="factor"
+              value="road"
+              id="road"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              چارچوب ها و استانداردها
+            <label class="form-check flex gap-2-label" for="road">
+              نقشه راه محصول و چشم انداز آینده
             </label>
           </div>
 
@@ -101,11 +104,51 @@ export default function Form_4() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="factor"
+              value="expert"
+              id="expert"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              قابلیت استفاده
+            <label class="form-check flex gap-2-label" for="expert">
+              خدمات تخصصی قوی
+            </label>
+          </div>
+
+          <div class="form-check flex gap-2">
+            <input
+              class="form-check flex gap-2-input"
+              type="checkbox"
+              name="factor"
+              value="partnership"
+              id="partnership"
+            />
+            <label class="form-check flex gap-2-label" for="partnership">
+              مشارکت و مشاوره قوی
+            </label>
+          </div>
+
+          <div class="form-check flex gap-2">
+            <input
+              class="form-check flex gap-2-input"
+              type="checkbox"
+              name="factor"
+              value="focus"
+              id="focus"
+            />
+            <label class="form-check flex gap-2-label" for="focus">
+              تمرکز بر مشتری
+            </label>
+          </div>
+
+          <div class="form-check flex gap-2">
+            <input
+              class="form-check flex gap-2-input"
+              type="checkbox"
+              name="factor"
+              value="sustain"
+              id="sustain"
+            />
+            <label class="form-check flex gap-2-label" for="sustain">
+              دوام مالی/سازمانی
             </label>
           </div>
         </form>

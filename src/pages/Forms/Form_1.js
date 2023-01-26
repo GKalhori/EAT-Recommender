@@ -9,15 +9,15 @@ export default function Form_1() {
       </h2>
       <div class="row col-5">
         <form class="px-4" action="">
-          <small class="fw-bold">(حداقل یک گزینه را انتخاب کنید!)</small>
           <div class="form-check flex gap-2">
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              name="general"
+              value="repo_meta"
+              id="repo_meta"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault">
+            <label class="form-check flex gap-2-label" for="repo_meta">
               مخزن / متامدل
             </label>
           </div>
@@ -26,10 +26,11 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault2"
+              name="general"
+              value="model"
+              id="model"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault2">
+            <label class="form-check flex gap-2-label" for="model">
               مدل سازی
             </label>
           </div>
@@ -38,10 +39,11 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="general"
+              value="decision"
+              id="decision"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
+            <label class="form-check flex gap-2-label" for="decision">
               تجزیه و تحلیل و کمک به تصمیم گیری
             </label>
           </div>
@@ -50,10 +52,11 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="general"
+              value="present"
+              id="present"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
+            <label class="form-check flex gap-2-label" for="present">
               قابلیت ارائه
             </label>
           </div>
@@ -62,10 +65,11 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="general"
+              value="admin"
+              id="admin"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
+            <label class="form-check flex gap-2-label" for="admin">
               قابلیت مدیریت
             </label>
           </div>
@@ -74,10 +78,11 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="general"
+              value="config"
+              id="config"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
+            <label class="form-check flex gap-2-label" for="config">
               قابلیت پیکربندی
             </label>
           </div>
@@ -86,11 +91,12 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="general"
+              value="std"
+              id="std"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
-              چارچوب ها و استانداردها
+            <label class="form-check flex gap-2-label" for="std">
+              برخورداری از چارچوب ها و استانداردها
             </label>
           </div>
 
@@ -98,10 +104,11 @@ export default function Form_1() {
             <input
               class="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault3"
+              name="general"
+              value="use"
+              id="use"
             />
-            <label class="form-check flex gap-2-label" for="flexCheckDefault3">
+            <label class="form-check flex gap-2-label" for="use">
               قابلیت استفاده
             </label>
           </div>

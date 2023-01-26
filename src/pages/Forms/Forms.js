@@ -69,7 +69,7 @@ function Forms() {
             4
           </span>
           <span>
-            <h3 className="leading-tight">ویژگی های کلیدی</h3>
+            <h3 className="leading-tight">فاکتور های کلیدی</h3>
           </span>
         </li>
       </ol>

@@ -3,16 +3,11 @@ import React from "react";
 export default function Form_3() {
   return (
     <div className="page-section container flex w-3/5 items-center flex-col mx-auto my-5 p-5 border-2 border-solid border-gray-500 border-opacity-30 rounded-md">
-      <h2 className="h3 m-2">
-        بخش اول: ویژگی های عمومی که از یک نرم افزار مدیریت پروژه های معماری
-        سازمانی انتظار دارید را انتخاب کنید.
-      </h2>
+      <h2 className="h3 m-2">بخش سوم:</h2>
       <div class="row col-5">
         <h4 class="fw-bold text-center mt-3"></h4>
         <form class="px-4" action="">
-          <small class="fw-bold">
-            (می توانید یک گزینه یا بیشتر انتخاب کنید)
-          </small>
+          <small class="fw-bold">(حداقل یک گزینه را انتخاب کنید)</small>
           <div class="form-check flex gap-2">
             <input
               class="form-check flex gap-2-input"

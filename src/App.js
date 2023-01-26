@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./globalStyles";
-import { Navbar, Footer } from "./components";
-import Home from "./pages/HomePage/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import HomePage from "./pages/HomePage/HomePage";
 import Tools from "./pages/Tools/Tools";
 import SignUp from "./pages/SignUp/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
@@ -15,7 +16,7 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/tools" element={<Tools />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/questionnaire" element={<Forms />} />

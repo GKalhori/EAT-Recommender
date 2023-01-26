@@ -15,7 +15,7 @@ import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
 import Logo from "./Logo";
 
-function Navbar() {
+export default function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [homeClick, setHomeClick] = useState(false);
@@ -97,5 +97,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;

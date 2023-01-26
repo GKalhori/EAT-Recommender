@@ -9,12 +9,12 @@ import {
   Subtitle,
   ImgWrapper,
   Img,
-} from "./InfoSection.elements";
+} from "./HomePage.elements";
 import { Container, Button } from "../../globalStyles";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 
-const Home = () => {
+const HomePage = () => {
   const ref = useRef(null);
 
   const handleClick = () => {
@@ -96,4 +96,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
