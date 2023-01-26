@@ -4,21 +4,10 @@ import {
   FooterContainer,
   FooterSubscription,
   FooterSubHeading,
-  FooterLinksContainer,
-  FooterLinksWrapper,
-  FooterLinkItems,
-  FooterLinkTitle,
   FooterLink,
-  SocialMedia,
-  SocialMediaWrap,
-  SocialLogo,
-  SocialIcon,
-  WebsiteRights,
 } from "./Footer.elements";
 
 function Footer() {
-  const date = new Date();
-
   return (
     <FooterContainer>
       <FooterSubscription>

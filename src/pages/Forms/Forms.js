@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import Form_1 from "./Form_1";
-import Form_2 from "./Form_2";
-import Form_3 from "./Form_3";
-import Form_4 from "./Form_4";
+import FormOne from "./FormOne";
+import FormTwo from "./FormTwo";
+import FormThree from "./FormThree";
+import FormFour from "./FormFour";
 
-export const form = [<Form_1 />, <Form_2 />, <Form_3 />, <Form_4 />];
+export const form = [<FormOne />, <FormTwo />, <FormThree />, <FormFour />];
 
 function Forms() {
   const activeTab = {
@@ -23,9 +23,9 @@ function Forms() {
   return (
     <div>
       <ol className="items-center justify-between w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-        <li className={currentForm == 1 ? activeTab.li : deactiveTab.li}>
+        <li className={currentForm === 1 ? activeTab.li : deactiveTab.li}>
           <span
-            className={currentForm == 1 ? activeTab.span : deactiveTab.span}
+            className={currentForm === 1 ? activeTab.span : deactiveTab.span}
           >
             1
           </span>
@@ -36,9 +36,9 @@ function Forms() {
 
         <hr className="text-black w-20" />
 
-        <li className={currentForm == 2 ? activeTab.li : deactiveTab.li}>
+        <li className={currentForm === 2 ? activeTab.li : deactiveTab.li}>
           <span
-            className={currentForm == 2 ? activeTab.span : deactiveTab.span}
+            className={currentForm === 2 ? activeTab.span : deactiveTab.span}
           >
             2
           </span>
@@ -49,9 +49,9 @@ function Forms() {
 
         <hr className="text-black w-20" />
 
-        <li className={currentForm == 3 ? activeTab.li : deactiveTab.li}>
+        <li className={currentForm === 3 ? activeTab.li : deactiveTab.li}>
           <span
-            className={currentForm == 3 ? activeTab.span : deactiveTab.span}
+            className={currentForm === 3 ? activeTab.span : deactiveTab.span}
           >
             3
           </span>
@@ -62,9 +62,9 @@ function Forms() {
 
         <hr className="text-black w-20" />
 
-        <li className={currentForm == 4 ? activeTab.li : deactiveTab.li}>
+        <li className={currentForm === 4 ? activeTab.li : deactiveTab.li}>
           <span
-            className={currentForm == 4 ? activeTab.span : deactiveTab.span}
+            className={currentForm === 4 ? activeTab.span : deactiveTab.span}
           >
             4
           </span>

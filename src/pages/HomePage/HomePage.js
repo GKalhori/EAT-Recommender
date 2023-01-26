@@ -48,7 +48,7 @@ const HomePage = () => {
               </TextWrapper>
             </InfoColumn>
             <InfoColumn>
-              <ImgWrapper start={true}>
+              <ImgWrapper>
                 <Img
                   src={require("../../assets/images/header_pic_1.png")}
                   alt={"ea"}
@@ -64,7 +64,7 @@ const HomePage = () => {
         <Container>
           <InfoRow imgStart={""}>
             <InfoColumn>
-              <ImgWrapper start={true}>
+              <ImgWrapper>
                 <Img
                   src={require("../../assets/images/header_pic_2.png")}
                   alt={"ea"}
