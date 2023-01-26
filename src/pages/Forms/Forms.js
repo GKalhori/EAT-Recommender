@@ -4,8 +4,7 @@ import FormOne from "./FormOne";
 import FormTwo from "./FormTwo";
 import FormThree from "./FormThree";
 import FormFour from "./FormFour";
-
-export const form = [<FormOne />, <FormTwo />, <FormThree />, <FormFour />];
+import { generalOptions } from "./data";
 
 function Forms() {
   const activeTab = {
@@ -19,6 +18,14 @@ function Forms() {
   };
 
   const [currentForm, setCurrentForm] = useState(1);
+  const [formOneOptions, setFormOneOptions] = useState(generalOptions);
+
+  const form = [
+    <FormOne options={formOneOptions} setOptions={setFormOneOptions} />,
+    <FormTwo />,
+    <FormThree />,
+    <FormFour />,
+  ];
 
   return (
     <div>
