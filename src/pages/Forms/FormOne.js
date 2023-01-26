@@ -12,8 +12,8 @@ export default function FormOne({ options, setOptions }) {
   };
 
   return (
-    <div className="page-section container flex w-2/5 items-start flex-col mx-auto my-5 p-5 border-2 border-solid border-gray-500 border-opacity-30 rounded-md">
-      <h2 className="mb-2">
+    <div className="page-section container flex w-3/6 items-start flex-col mx-auto my-5 py-5 px-7 border-2 border-solid border-gray-500 border-opacity-30 rounded-md">
+      <h2 className="mb-2 font-semibold">
         بخش اول: ویژگی های عمومی که از یک نرم افزار مدیریت پروژه های معماری
         سازمانی انتظار دارید را انتخاب کنید.
       </h2>

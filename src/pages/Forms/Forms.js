@@ -1,105 +1,69 @@
 import React, { useState } from "react";
-
 import FormOne from "./FormOne";
 import FormTwo from "./FormTwo";
 import FormThree from "./FormThree";
 import FormFour from "./FormFour";
-import { generalOptions, orgOptions } from "./data";
+import { steps, general, factors, features } from "./data";
 
 function Forms() {
-  const activeTab = {
-    li: "flex items-center text-blue-600 font-semibold flex-col gap-2 dark:text-blue-500 space-x-2.5",
-    span: "flex items-center justify-center w-8 h-8 border border-blue-600 bg-blue-600 text-white rounded-full shrink-0 dark:border-blue-500",
-  };
-
-  const deactiveTab = {
-    li: "flex items-center text-gray-500 font-semibold flex-col gap-2 dark:text-gray-400 space-x-2.5",
-    span: "flex items-center justify-center w-8 h-8 border border-gray-500 bg-gray-500 text-white rounded-full shrink-0 dark:border-gray-400",
-  };
-
-  const [currentForm, setCurrentForm] = useState(1);
-  const [formOneOptions, setFormOneOptions] = useState(generalOptions);
-  const [formTwoOptions, setFormTwoOptions] = useState(orgOptions);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formOneOptions, setFormOneOptions] = useState(general);
   const [formTwoSelected, setFormTwoSelected] = useState(null);
+  const [formThreeOptions, setFormThreeOptions] = useState(features);
+  const [formFourOptions, setFormFourOptions] = useState(factors);
 
   const form = [
     <FormOne options={formOneOptions} setOptions={setFormOneOptions} />,
-    <FormTwo
-      options={formTwoOptions}
-      setOptions={setFormTwoOptions}
-      selected={formTwoSelected}
-      setSelected={setFormTwoSelected}
-    />,
-    <FormThree />,
-    <FormFour />,
+    <FormTwo selected={formTwoSelected} setSelected={setFormTwoSelected} />,
+    <FormThree options={formThreeOptions} setOptions={setFormThreeOptions} />,
+    <FormFour options={formFourOptions} setOptions={setFormFourOptions} />,
   ];
 
   return (
-    <div>
-      <ol className="items-center justify-between w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0">
-        <li className={currentForm === 1 ? activeTab.li : deactiveTab.li}>
-          <span
-            className={currentForm === 1 ? activeTab.span : deactiveTab.span}
+    <div className="my-4">
+      <ol className="flex flex-row items-center justify-center gap-3 sm:flex sm:space-x-8 sm:space-y-0">
+        {steps.map((step) => (
+          <li
+            key={step.id}
+            className={`flex flex-col w-36 items-center font-semibold gap-2 ${
+              currentStep === step.id ? "text-blue-500" : "text-gray-500"
+            }`}
           >
-            1
-          </span>
-          <span>
-            <h3 className="leading-tight">مشخصات عمومی</h3>
-          </span>
-        </li>
-
-        <hr className="text-black w-20" />
-
-        <li className={currentForm === 2 ? activeTab.li : deactiveTab.li}>
-          <span
-            className={currentForm === 2 ? activeTab.span : deactiveTab.span}
-          >
-            2
-          </span>
-          <span>
-            <h3 className="leading-tight">نوع سازمان</h3>
-          </span>
-        </li>
-
-        <hr className="text-black w-20" />
-
-        <li className={currentForm === 3 ? activeTab.li : deactiveTab.li}>
-          <span
-            className={currentForm === 3 ? activeTab.span : deactiveTab.span}
-          >
-            3
-          </span>
-          <span>
-            <h3 className="leading-tight">قابلیت های خاص</h3>
-          </span>
-        </li>
-
-        <hr className="text-black w-20" />
-
-        <li className={currentForm === 4 ? activeTab.li : deactiveTab.li}>
-          <span
-            className={currentForm === 4 ? activeTab.span : deactiveTab.span}
-          >
-            4
-          </span>
-          <span>
-            <h3 className="leading-tight">فاکتور های کلیدی</h3>
-          </span>
-        </li>
+            <span
+              className={`flex items-center justify-center w-8 h-8 border text-white rounded-full shrink-0 ${
+                currentStep === step.id
+                  ? "border-blue-500 bg-blue-500"
+                  : "border-gray-500 bg-gray-500"
+              }`}
+            >
+              {step.id}
+            </span>
+            <span>
+              <h3 className="leading-tight">{step.name}</h3>
+            </span>
+          </li>
+        ))}
       </ol>
 
-      {form[currentForm - 1]}
+      {form[currentStep - 1]}
 
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4 items-center justify-center my-4">
         <button
-          className="step-trigger text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          onClick={() => setCurrentForm(currentForm - 1)}
+          className={`text-white text-sm px-5 py-2.5 text-center font-medium rounded-lg ${
+            currentStep === 1
+              ? "bg-gray-500"
+              : "bg-blue-500 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300"
+          }`}
+          disabled={currentStep === 1 ? true : false}
+          onClick={() => setCurrentStep(currentStep - 1)}
         >
           مرحله قبل
         </button>
         <button
-          className="step-trigger text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          onClick={() => setCurrentForm(currentForm + 1)}
+          className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          onClick={() => {
+            if (currentStep < 4) setCurrentStep(currentStep + 1);
+          }}
         >
           مرحله بعد
         </button>
