@@ -23,8 +23,6 @@ export default function FormOne({ options, setOptions }) {
             className="form-check flex gap-2-input"
             type="checkbox"
             id={option.id}
-            name={"generals"}
-            value={option.id}
             checked={option.checked}
             onChange={() => updateCheckStatus(index)}
           />
