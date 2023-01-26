@@ -43,7 +43,7 @@ export const features = [
   { name: "قابلیت های تجزیه و تحلیل وضعیت", id: "analyze", checked: false },
   { name: "مدیریت ریسک", id: "risk", checked: false },
   {
-    name: "قابلیت های out-of-the-boxفریم ورک های متعدد",
+    name: "فریم ورک های متعدد",
     id: "standard_framework",
     checked: false,
   },

@@ -1,132 +1,39 @@
 import React from "react";
 
-export default function FormThree() {
+export default function FormThree({ options, setOptions }) {
+  const updateCheckStatus = (index) => {
+    setOptions(
+      options.map((option, currentIndex) =>
+        currentIndex === index
+          ? { ...option, checked: !option.checked }
+          : option
+      )
+    );
+  };
+
   return (
-    <div className="page-section container flex w-3/5 items-center flex-col mx-auto my-5 p-5 border-2 border-solid border-gray-500 border-opacity-30 rounded-md">
-      <h2 className="mb-2 font-semibold">بخش سوم:</h2>
-      <div className="row col-5">
-        <form className="px-4" action="">
-          <small className="fw-bold">(حداقل یک گزینه را انتخاب کنید)</small>
-          <div className="form-check flex gap-2">
+    <div className="flex flex-col w-4/5 justify-center justify-items-center content-center items-center mx-auto my-5 py-5 border-2 border-gray-500 border-opacity-30 rounded-md">
+      <h2 className="mb-3 font-semibold">
+        بخش سوم: ویژگی های خاصی که از یک نرم افزار مدیریتی انتظار دارید را مشخص
+        کنید.
+        <br />
+        <small className="fw-bold">(حداقل یک گزینه را انتخاب کنید)</small>
+      </h2>
+      <div className="grid grid-cols-3 gap-x-10 gap-y-2 pr-20">
+        {options.map((option, index) => (
+          <div className="form-check flex gap-2" key={index}>
             <input
               className="form-check flex gap-2-input"
               type="checkbox"
-              value=""
-              id="flexCheckDefault"
+              id={option.id}
+              checked={option.checked}
+              onChange={() => updateCheckStatus(index)}
             />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault"
-            >
-              مخزن / متامدل
+            <label className="form-check flex gap-2-label" htmlFor={option.id}>
+              {option.name}
             </label>
           </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault2"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault2"
-            >
-              مدل سازی
-            </label>
-          </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault3"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault3"
-            >
-              تجزیه و تحلیل و کمک به تصمیم گیری
-            </label>
-          </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault3"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault3"
-            >
-              قابلیت ارائه
-            </label>
-          </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault3"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault3"
-            >
-              قابلیت مدیریت
-            </label>
-          </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault3"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault3"
-            >
-              قابلیت پیکربندی
-            </label>
-          </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault3"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault3"
-            >
-              چارچوب ها و استانداردها
-            </label>
-          </div>
-
-          <div className="form-check flex gap-2">
-            <input
-              className="form-check flex gap-2-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault3"
-            />
-            <label
-              className="form-check flex gap-2-label"
-              htmlFor="flexCheckDefault3"
-            >
-              قابلیت استفاده
-            </label>
-          </div>
-        </form>
+        ))}
       </div>
     </div>
   );
