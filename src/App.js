@@ -4,7 +4,8 @@ import GlobalStyles from "./globalStyles";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
-import Tools from "./pages/Tools/Tools";
+import AllTools from "./pages/Tools/AllTools";
+import ToolPage from "./pages/Tools/ToolPage";
 import SignUp from "./pages/SignUp/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
 import Forms from "./pages/Forms/Forms";
@@ -17,7 +18,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/tools" element={<Tools />} />
+        <Route path="/tools" element={<AllTools />} />
+        <Route path="/tools/:id" element={<ToolPage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/questionnaire" element={<Forms />} />
       </Routes>

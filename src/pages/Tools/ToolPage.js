@@ -1,7 +1,5 @@
 import React from "react";
 
-function Tools() {
+export default function ToolPage(props) {
   return <></>;
 }
-
-export default Tools;

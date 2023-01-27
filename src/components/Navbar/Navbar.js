@@ -53,7 +53,7 @@ export default function Navbar() {
             <NavLogo to="/" className="flex gap-3 items-center">
               <Logo />
               <span className="font-semibold text-3xl">
-                سامانه توصیه گر ابزار معماری سازمانی
+                سامانه توصیه<span>&#8239;</span>گر ابزار معماری سازمانی
               </span>
             </NavLogo>
             <HamburgerIcon onClick={handleClick}>
