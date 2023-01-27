@@ -4,8 +4,22 @@ import FormTwo from "./FormTwo";
 import FormThree from "./FormThree";
 import FormFour from "./FormFour";
 import { steps, general, factors, features } from "./data";
+import recommenderServices from "../../api/recommenderServices";
 
 function Forms() {
+  const [features, setFeatures] = useState([]);
+
+  function handleForm() {
+    recommenderServices
+      .getFeatures()
+      .then((data) => {
+        setFeatures(data.data.data);
+      })
+      .catch((err) => {
+        return err;
+      });
+  }
+
   const [currentStep, setCurrentStep] = useState(1);
   const [formOneOptions, setFormOneOptions] = useState(general);
   const [formTwoSelected, setFormTwoSelected] = useState(null);
@@ -63,9 +77,10 @@ function Forms() {
           className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
           onClick={() => {
             if (currentStep < 4) setCurrentStep(currentStep + 1);
+            else handleForm();
           }}
         >
-          مرحله بعد
+          {currentStep < 4 ? "مرحله بعد" : "مشاهده نتیجه"}
         </button>
       </div>
     </div>
