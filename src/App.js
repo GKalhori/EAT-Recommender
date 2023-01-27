@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import AllTools from "./pages/Tools/AllTools";
 import ToolPage from "./pages/Tools/ToolPage";
-import SignUp from "./pages/SignUp/SignUp";
+import SignUp from "./pages/Auth/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
 import Forms from "./pages/Forms/Forms";
 
