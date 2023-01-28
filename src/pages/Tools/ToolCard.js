@@ -3,22 +3,40 @@ import { NavLink } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 export default function ToolCard(props) {
   return (
-    <NavLink
-      to={`/tools/${props?.id}`}
-      className={"no-underline text-black opacity-90"}
-    >
-      <div className="card_shadow rounded-lg p-2.5 flex flex-col gap-2">
-        <div className="flex justify-center items-center">
-          <img
-            src={props.img}
-            alt="software logo"
-            className="h-40 w-30 rounded-lg items-center"
+    <div className="box-shadow flex flex-row rounded-lg p-4 px-5 gap-6 text-gray-200 bg-slate-700 flex-wrap justify-center md:flex-nowrap">
+      <div className="flex flex-col items-center gap-3">
+        <img
+          src={props.img}
+          alt="software logo"
+          width={"192px"}
+          className="bg-white p-2 w-40 h-max rounded-lg items-center"
+        />
+        <div className="flex flex-row gap-2 items-center">
+          <span className="mt-1">({props.voters})</span>
+          <Rating
+            dir="ltr"
+            name="simple-controlled"
+            value={props.rate}
+            readOnly={true}
+            precision={0.1}
           />
         </div>
-        <p className="text-sm mr-1 w-48 h-6">{props.name}</p>
-        <p>{props.description}</p>
-        <Rating dir="ltr" name="simple-controlled" value={props.rate} />
       </div>
-    </NavLink>
+      <div className="flex flex-col justify-between gap-2">
+        <div>
+          <h6 className="font-semibold">{props.name}</h6>
+          <small>{props.company}</small>
+          <p className="mt-2 text-justify">{props.description}</p>
+        </div>
+        <NavLink
+          to={`./${props.id}`}
+          className="self-end justify-end align-bottom"
+        >
+          <button className="py-2 px-3 bg-blue-500 text-gray-100 rounded-md hover:bg-blue-700">
+            جزییات بیشتر
+          </button>
+        </NavLink>
+      </div>
+    </div>
   );
 }

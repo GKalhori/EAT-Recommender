@@ -4,7 +4,7 @@ import { tools } from "./toolsData";
 
 function Tools() {
   return (
-    <>
+    <div className="w-4/5 my-4 mx-auto grid grid-cols-2 gap-3">
       {tools.map((tool) => (
         <ToolCard
           key={tool.id}
@@ -17,7 +17,7 @@ function Tools() {
           voters={tool.voters}
         />
       ))}
-    </>
+    </div>
   );
 }
 

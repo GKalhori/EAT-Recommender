@@ -50,15 +50,15 @@ export default function Navbar() {
       <IconContext.Provider value={{ color: "#fff" }}>
         <Nav>
           <NavbarContainer>
+            <HamburgerIcon className="bg-gray-900" onClick={handleClick}>
+              {click ? <FaTimes /> : <FaBars />}
+            </HamburgerIcon>
             <NavLogo to="/" className="flex gap-3 items-center">
               <Logo />
-              <span className="font-semibold text-3xl">
+              <span className="font-semibold text-2xl md:text-3xl">
                 سامانه توصیه<span>&#8239;</span>گر ابزار معماری سازمانی
               </span>
             </NavLogo>
-            <HamburgerIcon onClick={handleClick}>
-              {click ? <FaTimes /> : <FaBars />}
-            </HamburgerIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem onClick={handleHomeClick} homeClick={homeClick}>
                 <NavLinks to="/" onClick={closeMobileMenu}>

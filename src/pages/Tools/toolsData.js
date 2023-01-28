@@ -2,8 +2,8 @@ import t1 from "../../assets/images/tools/t1.png";
 import t2 from "../../assets/images/tools/t2.png";
 import t3 from "../../assets/images/tools/t3.png";
 import t4 from "../../assets/images/tools/t4.png";
-import t5 from "../../assets/images/tools/t5.jpg";
-import t6 from "../../assets/images/tools/t6.png";
+import t5 from "../../assets/images/tools/t5.png";
+import t6 from "../../assets/images/tools/t6.jpg";
 import t7 from "../../assets/images/tools/t7.png";
 import t8 from "../../assets/images/tools/t8.png";
 import t9 from "../../assets/images/tools/t9.png";
@@ -53,22 +53,22 @@ export const tools = [
   {
     id: 5,
     img: t5,
-    name: "Abacus",
-    company: "Avolution",
-    description:
-      "ابزاری پیشرو برای مدل سازی و نقشه راه. آباکوس از معماری سازمانی مشارکتی پشتیبانی می کند و استراتژی IT و کسب و کار شما را به هم متصل می کند. داده ها و داشبوردهای مبتنی بر ابر، همکاری جهانی و کار از راه دور را ساده می کنند.",
-    rate: 4.4,
-    voters: 130,
-  },
-  {
-    id: 6,
-    img: t6,
     name: "Bizzdesign Enterprise Studio",
     company: "Bizzdesign",
     description:
       "BiZZdesign Enterprise Studio، سابقاً BiZZdesign Architect، یک ابزار مدل‌سازی و طراحی بصری برای Enterprise Architecture است که از کاربرد ArchiMate و TOGAF و همچنین سایر چارچوب‌های معماری سازمانی پشتیبانی می‌کند. این پلتفرم از مدل‌سازی، تجسم، تحلیل و مستندسازی معماری سازمانی از دیدگاه‌های مختلف و با نماهای متعدد پشتیبانی می‌کند. علاوه بر این، از مدل سازی اهداف و الزامات تجاری پشتیبانی می کند. همچنین به جمع آوری خودکار داده ها کمک می کند و می تواند داده ها را از برنامه های اداری وارد کند.",
     rate: 4.7,
     voters: 142,
+  },
+  {
+    id: 6,
+    img: t6,
+    name: "Abacus",
+    company: "Avolution",
+    description:
+      "ابزاری پیشرو برای مدل سازی و نقشه راه. Abacus از معماری سازمانی مشارکتی پشتیبانی می کند و استراتژی IT و کسب و کار شما را به هم متصل می کند. داده ها و داشبوردهای مبتنی بر ابر، همکاری جهانی و کار از راه دور را ساده می کنند.",
+    rate: 4.4,
+    voters: 130,
   },
   {
     id: 7,

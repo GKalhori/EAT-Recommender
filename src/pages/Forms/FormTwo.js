@@ -8,21 +8,26 @@ export default function FormTwo({ selected, setSelected }) {
         <h2 className="mb-2 font-semibold">
           بخش دوم: نوع سازمان/شرکت خود را انتخاب کنید.
         </h2>
-        {organization.map((option, index) => (
-          <div className="form-radio flex gap-2" key={index}>
-            <input
-              className="form-radio flex gap-2-input"
-              type="radio"
-              name="org"
-              id={option.id}
-              checked={option.id === selected ? true : false}
-              onChange={() => setSelected(option.id)}
-            />
-            <label className="form-radio flex gap-2-label" htmlFor={option.id}>
-              {option.name}
-            </label>
-          </div>
-        ))}
+        <div className="grid grid-cols-2 mx-auto gap-x-4">
+          {organization.map((option, index) => (
+            <div className="form-radio flex gap-2" key={index}>
+              <input
+                className="form-radio flex gap-2-input"
+                type="radio"
+                name="org"
+                id={option.id}
+                checked={option.id === selected ? true : false}
+                onChange={() => setSelected(option.id)}
+              />
+              <label
+                className="form-radio flex gap-2-label"
+                htmlFor={option.id}
+              >
+                {option.name}
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
