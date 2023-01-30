@@ -42,3 +42,63 @@
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
+
+.auth-card {
+  height: 400px;
+  width: 350px;
+  background-color: #d5def5;
+}
+
+@media only screen and (max-width: 600px) {
+  .auth-card {
+    width: 80%;
+  }
+}
+
+.loader {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* dropdown nav item*/
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #dedbdb;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: small;
+  font-weight: normal;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.pro-btn :hover {
+  background-color: #7b808f;
+  color: #f9f9f9;
+}

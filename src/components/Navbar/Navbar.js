@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import "../../App.css";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { NavLink } from "react-router-dom";
 import {
   Nav,
   NavbarContainer,
@@ -20,6 +24,7 @@ export default function Navbar() {
   const [button, setButton] = useState(true);
   const [homeClick, setHomeClick] = useState(false);
   const [toolsClick, setToolsClick] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleHomeClick = () => {
     setHomeClick(true);
@@ -34,16 +39,65 @@ export default function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    // so if the screensize is <= 960px then set button state to false
     if (window.innerwidth <= 960) setButton(false);
     else setButton(true);
   };
 
   useEffect(() => {
     showButton();
+
+    let isMounted = true;
+    if (isMounted) {
+      if (
+        localStorage.getItem("token") &&
+        localStorage.getItem("token") !== "undefined"
+      )
+        setLoggedIn(true);
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   window.addEventListener("resize", showButton);
+
+  const logout = () => {
+    setLoggedIn(false);
+    localStorage.setItem("token", "undefined");
+    window.location.reload();
+  };
+
+  let loggedInUser = (
+    <div className="dropdown mr-3">
+      <AccountCircleIcon
+        fontSize="large"
+        className={"cursor-pointer text-slate-800"}
+      />
+      <div className="pro-btn dropdown-content">
+        <NavLink
+          to={"/profile"}
+          className={
+            "text-sm no-underline cursor-pointer p-2 flex rounded-t-md border-2 border-slate-500"
+          }
+        >
+          <i className="fa fa-user-circle fa-fw pt-1.5 flex"></i> پروفایل
+        </NavLink>
+
+        <button
+          className={`text-sm no-underline cursor-pointer p-2 w-full flex rounded-b-md border-x-2 border-b-2 border-slate-500`}
+          onClick={logout}
+        >
+          <i className="fa fa-sign-out fa-fw pt-1.5"></i> خروج
+        </button>
+      </div>
+    </div>
+  );
+
+  let loggedOutUser = (
+    <NavBtnLink to="/login">
+      <Button primary>ورود | ثبت نام</Button>
+    </NavBtnLink>
+  );
 
   return (
     <>
@@ -55,7 +109,7 @@ export default function Navbar() {
             </HamburgerIcon>
             <NavLogo to="/" className="flex gap-3 items-center">
               <Logo />
-              <span className="font-semibold text-2xl md:text-3xl">
+              <span className="text-xl md:text-2xl text text-slate-900">
                 سامانه توصیه<span>&#8239;</span>گر ابزار معماری سازمانی
               </span>
             </NavLogo>
@@ -74,18 +128,20 @@ export default function Navbar() {
 
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to="/sign-up">
-                    <Button primary>ثبت نام | ورود</Button>
-                  </NavBtnLink>
+                  isLoggedIn ? (
+                    loggedInUser
+                  ) : (
+                    loggedOutUser
+                  )
                 ) : (
-                  <NavBtnLink to="/sign-up">
+                  <NavBtnLink to="/login">
                     <Button
                       onClick={closeMobileMenu}
                       fontBig
                       primary
                       className=" bg-green-100"
                     >
-                      ثبت نام | ورود
+                      ورود | ثبت نام
                     </Button>
                   </NavBtnLink>
                 )}

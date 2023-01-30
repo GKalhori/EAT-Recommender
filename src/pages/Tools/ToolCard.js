@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 export default function ToolCard(props) {
   return (
-    <div className="box-shadow flex flex-row rounded-lg p-4 px-5 gap-6 text-gray-200 bg-slate-700 flex-wrap justify-center md:flex-nowrap">
+    <div className="box-shadow flex flex-row rounded-lg p-4 px-5 gap-6 text-slate-800 bg-indigo-100 flex-wrap justify-center md:flex-nowrap">
       <div className="flex flex-col items-center gap-3">
         <img
           src={props.img}

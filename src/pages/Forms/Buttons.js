@@ -7,7 +7,7 @@ export default function Buttons({ currentStep, setCurrentStep, handleForm }) {
         className={`text-white text-sm px-5 py-2.5 text-center font-medium rounded-lg ${
           currentStep === 1
             ? "bg-gray-500"
-            : "bg-blue-500 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300"
+            : "bg-sky-800 hover:bg-sky-500 focus:ring-2 focus:outline-none focus:ring-sky-300"
         }`}
         disabled={currentStep === 1 ? true : false}
         onClick={() => setCurrentStep(currentStep - 1)}
@@ -15,7 +15,7 @@ export default function Buttons({ currentStep, setCurrentStep, handleForm }) {
         مرحله قبل
       </button>
       <button
-        className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        className="text-white bg-sky-800 hover:bg-sky-500 focus:ring-2 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         onClick={() => {
           if (currentStep < 4) setCurrentStep(currentStep + 1);
           else handleForm();
