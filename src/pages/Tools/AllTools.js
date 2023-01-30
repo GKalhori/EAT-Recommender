@@ -1,6 +1,6 @@
 import React from "react";
 import ToolCard from "./ToolCard";
-import { tools } from "./toolsData";
+import { tools } from "../../static/toolsData";
 
 function Tools() {
   return (

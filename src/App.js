@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./globalStyles";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./template/Navbar/Navbar";
+import Footer from "./template/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import AllTools from "./pages/Tools/AllTools";
 import ToolPage from "./pages/Tools/ToolPage";
 import Register from "./pages/Auth/Register";
-import ScrollToTop from "./components/ScrollToTop";
-import Forms from "./pages/Forms/Forms";
+import ScrollToTop from "./template/ScrollToTop";
+import Questionnaire from "./pages/Forms/Questionnaire";
 import Login from "./pages/Auth/Login";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <Route path="/tools/:id" element={<ToolPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/questionnaire" element={<Forms />} />
+        <Route path="/questionnaire" element={<Questionnaire />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,5 +1,5 @@
 import React from "react";
-import { steps } from "./data";
+import { steps } from "../../static/formsData";
 
 export default function Stepper({ currentStep }) {
   return (

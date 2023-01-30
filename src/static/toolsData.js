@@ -1,13 +1,13 @@
-import t1 from "../../assets/images/tools/t1.png";
-import t2 from "../../assets/images/tools/t2.png";
-import t3 from "../../assets/images/tools/t3.png";
-import t4 from "../../assets/images/tools/t4.png";
-import t5 from "../../assets/images/tools/t5.png";
-import t6 from "../../assets/images/tools/t6.jpg";
-import t7 from "../../assets/images/tools/t7.png";
-import t8 from "../../assets/images/tools/t8.png";
-import t9 from "../../assets/images/tools/t9.png";
-import t10 from "../../assets/images/tools/t10.jpg";
+import t1 from "../assets/images/tools/t1.png";
+import t2 from "../assets/images/tools/t2.png";
+import t3 from "../assets/images/tools/t3.png";
+import t4 from "../assets/images/tools/t4.png";
+import t5 from "../assets/images/tools/t5.png";
+import t6 from "../assets/images/tools/t6.jpg";
+import t7 from "../assets/images/tools/t7.png";
+import t8 from "../assets/images/tools/t8.png";
+import t9 from "../assets/images/tools/t9.png";
+import t10 from "../assets/images/tools/t10.jpg";
 
 export const tools = [
   {

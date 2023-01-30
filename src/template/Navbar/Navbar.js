@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import "../../App.css";
 import { NavLink } from "react-router-dom";
 import {
@@ -115,12 +117,14 @@ export default function Navbar() {
             <NavMenu onClick={handleClick} click={click}>
               <NavItem onClick={handleHomeClick} homeClick={homeClick}>
                 <NavLinks to="/" onClick={closeMobileMenu}>
+                  <HomeIcon className=" ml-1" />
                   خانه
                 </NavLinks>
               </NavItem>
 
               <NavItem onClick={handleToolsClick} toolsClick={toolsClick}>
                 <NavLinks to="/tools" onClick={closeMobileMenu}>
+                  <AccountTreeIcon className=" ml-1" />
                   ابزار
                 </NavLinks>
               </NavItem>

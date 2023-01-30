@@ -15,10 +15,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 
 const HomePage = () => {
-  let str = localStorage.getItem("token");
-  console.log(str);
   const ref = useRef(null);
-
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };

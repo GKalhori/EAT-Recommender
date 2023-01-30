@@ -1,6 +1,6 @@
 import React from "react";
 import ToolCard from "../Tools/ToolCard";
-import { tools } from "../Tools/toolsData";
+import { tools } from "../../static/toolsData";
 import "../../App.css";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 
@@ -12,21 +12,24 @@ export default function Result(props) {
         ادامه آمده است
       </p>
       <div className="flex flex-col gap-2.5">
-        {tools.map((tool) =>
-          tool.name === props.toolName[0] || tool.name === props.toolName[1] ? (
-            <ToolCard
-              name={tool.name}
-              id={tool.id}
-              img={tool.img}
-              description={tool.description}
-              rate={tool.rate}
-              company={tool.company}
-              voters={tool.voters}
-            />
-          ) : (
-            <></>
-          )
-        )}
+        <ToolCard
+          name={tools.at(props.toolName[0] - 1).name}
+          id={tools.at(props.toolName[0] - 1).id}
+          img={tools.at(props.toolName[0] - 1).img}
+          description={tools.at(props.toolName[0] - 1).description}
+          rate={tools.at(props.toolName[0] - 1).rate}
+          company={tools.at(props.toolName[0] - 1).company}
+          voters={tools.at(props.toolName[0] - 1).voters}
+        />
+        <ToolCard
+          name={tools.at(props.toolName[1] - 1).name}
+          id={tools.at(props.toolName[1] - 1).id}
+          img={tools.at(props.toolName[1] - 1).img}
+          description={tools.at(props.toolName[1] - 1).description}
+          rate={tools.at(props.toolName[1] - 1).rate}
+          company={tools.at(props.toolName[1] - 1).company}
+          voters={tools.at(props.toolName[1] - 1).voters}
+        />
       </div>
     </div>
   );

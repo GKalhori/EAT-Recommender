@@ -96,7 +96,7 @@ export const features = [
   { name: "آپدیت های منظم", nameEng: "regular_update", id: 28, checked: false },
   { name: "UML", nameEng: "UML", id: 29, checked: false },
   { name: "اتوماسیون", nameEng: "automation", id: 30, checked: false },
-  { name: "پشتیبانی از API", nameEng: "api", id: 34, checked: false },
+  { name: "پشتیبانی از API", nameEng: "api", id: 31, checked: false },
   {
     name: "قابلیت های به اشتراک گذاری",
     nameEng: "share",

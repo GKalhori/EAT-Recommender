@@ -1,5 +1,5 @@
 import React from "react";
-import { organization } from "./data";
+import { organization } from "../../static/formsData";
 
 export default function FormTwo({ selected, setSelected }) {
   return (
