@@ -5,7 +5,6 @@ import "../../App.css";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 
 export default function Result(props) {
-  console.log(props);
   return (
     <div className="container w-3/4 mx-auto my-4">
       <p className="font-bold text-xl text-center text-slate-800 my-3 bg-indigo-100 p-2 rounded-lg">

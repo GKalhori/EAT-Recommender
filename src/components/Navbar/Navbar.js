@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import "../../App.css";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { NavLink } from "react-router-dom";
 import {
   Nav,

@@ -8,6 +8,7 @@ import recommenderServices from "../../api/recommenderServices";
 import Stepper from "./Stepper";
 import Buttons from "./Buttons";
 import Result from "./Result";
+import { NavLink } from "react-router-dom";
 
 function Forms() {
   const [loading, setLoading] = useState(true);
@@ -28,18 +29,18 @@ function Forms() {
   function handleForm() {
     const userFeatues = [];
 
-    formOneOptions.map((options) => {
-      if (options.checked == true) userFeatues.push(options.id);
+    formOneOptions.forEach((options) => {
+      if (options.checked === true) userFeatues.push(options.id);
     });
 
     userFeatues.push(formTwoSelected);
 
-    formThreeOptions.map((options) => {
-      if (options.checked == true) userFeatues.push(options.id);
+    formThreeOptions.forEach((options) => {
+      if (options.checked === true) userFeatues.push(options.id);
     });
 
-    formFourOptions.map((options) => {
-      if (options.checked == true) userFeatues.push(options.id);
+    formFourOptions.forEach((options) => {
+      if (options.checked === true) userFeatues.push(options.id);
     });
 
     recommenderServices
@@ -47,7 +48,6 @@ function Forms() {
       .then((data) => {
         setResult(data.data);
         setLoading(false);
-        console.log(data.data);
       })
       .catch((err) => {
         return err;
@@ -55,21 +55,47 @@ function Forms() {
   }
 
   return (
-    <div className="my-4">
-      {loading ? (
-        <>
-          <Stepper currentStep={currentStep} />
-          {form[currentStep - 1]}
-          <Buttons
-            currentStep={currentStep}
-            setCurrentStep={setCurrentStep}
-            handleForm={handleForm}
-          />
-        </>
+    <>
+      {localStorage.getItem("token") !== "undefined" ? (
+        <div className="my-4">
+          {loading ? (
+            <>
+              <Stepper currentStep={currentStep} />
+              {form[currentStep - 1]}
+              <Buttons
+                currentStep={currentStep}
+                setCurrentStep={setCurrentStep}
+                handleForm={handleForm}
+              />
+            </>
+          ) : (
+            <Result toolName={result} />
+          )}
+        </div>
       ) : (
-        <Result toolName={result} />
+        <div className="h-80 flex justify-center items-center">
+          <div className="p-10 bg-slate-200 rounded-lg">
+            برای استفاده از خدمات سیستم توصیه گر، باید در سایت
+            <NavLink
+              to={"/register"}
+              className="text-blue-600 hover:text-blue-900"
+            >
+              {" "}
+              ثبت نام{" "}
+            </NavLink>
+            کرده و
+            <NavLink
+              to={"/login"}
+              className="text-blue-600 hover:text-blue-900"
+            >
+              {" "}
+              وارد{" "}
+            </NavLink>
+            شوید.
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 

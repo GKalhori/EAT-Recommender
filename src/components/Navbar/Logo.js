@@ -1,4 +1,7 @@
-import logoPath from "../../assets/images/logo.png";
-const Logo = () => <img className=" h-16" src={logoPath} alt="logo" />;
+import React from "react";
 
-export default Logo;
+import logoPath from "../../assets/images/logo.png";
+
+export default function Logo() {
+  return <img className=" h-16" src={logoPath} alt="logo" />;
+}
