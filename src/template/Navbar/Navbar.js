@@ -76,19 +76,19 @@ export default function Navbar() {
       />
       <div className="pro-btn dropdown-content">
         <NavLink
-          to={"/profile"}
+          to={"/history"}
           className={
             "text-sm no-underline cursor-pointer p-2 flex rounded-t-md border-2 border-slate-500"
           }
         >
-          <i className="fa fa-user-circle fa-fw pt-1.5 flex"></i> پروفایل
+          سابقه
         </NavLink>
 
         <button
           className={`text-sm no-underline cursor-pointer p-2 w-full flex rounded-b-md border-x-2 border-b-2 border-slate-500`}
           onClick={logout}
         >
-          <i className="fa fa-sign-out fa-fw pt-1.5"></i> خروج
+          خروج
         </button>
       </div>
     </div>

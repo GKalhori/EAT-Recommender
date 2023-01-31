@@ -10,6 +10,7 @@ import Register from "./pages/Auth/Register";
 import ScrollToTop from "./template/ScrollToTop";
 import Questionnaire from "./pages/Forms/Questionnaire";
 import Login from "./pages/Auth/Login";
+import History from "./pages/History/History";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/questionnaire" element={<Questionnaire />} />
+        <Route path="/history" element={<History />} />
       </Routes>
       <Footer />
     </Router>
