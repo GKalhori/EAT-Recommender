@@ -3,7 +3,7 @@ import HistoryIcon from "@mui/icons-material/History";
 import recommenderServices from "../../api/recommenderServices";
 import ToolCard from "../Tools/ToolCard";
 import { tools } from "../../static/toolsData";
-import Survey from "./Survey";
+import { NavLink } from "react-router-dom";
 
 export default function History() {
   const [history, setHistory] = useState([]);
@@ -48,7 +48,14 @@ export default function History() {
             نظرات شما در بهبود پیشنهادات سیستم توصیه گر تاثیر مستقیم دارد!
           </small>
         </div>
-        <Survey history={history} toolsId={toolsId} />
+        <NavLink to={"/survey"}>
+          <button
+            className="bg-blue-500 text-white rounded-md p-3 h-full hover:bg-blue-700"
+            disabled={history.length === 0}
+          >
+            نظرسنجی
+          </button>
+        </NavLink>
       </div>
       <div className="flex flex-col gap-2 mb-8 items-center w-4/5 mx-auto">
         {history.length === 0 ? (

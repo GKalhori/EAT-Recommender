@@ -65,7 +65,7 @@ export default function Navbar() {
   const logout = () => {
     setLoggedIn(false);
     localStorage.setItem("token", "undefined");
-    window.location.reload();
+    window.location = "/";
   };
 
   let loggedInUser = (

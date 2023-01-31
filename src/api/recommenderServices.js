@@ -12,6 +12,10 @@ class recommenderServices {
   getLatestTools() {
     return axios.get("/tools/recommends/");
   }
+
+  rateRecommendation(featureId, status) {
+    return axios.post(`/tools/rate/${featureId}/?rate=${status}`);
+  }
 }
 
 export default new recommenderServices();
