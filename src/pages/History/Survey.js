@@ -54,6 +54,7 @@ export default function Survey() {
   // ----------------------------------------------- used features
   const likes = [];
   const dislikes = [];
+  const ok = [];
 
   function setStatues(type, id) {
     if (type === "like") {
@@ -105,7 +106,7 @@ export default function Survey() {
     recommenderServices
       .rateRecommendation(featureId, status)
       .then((data) => {
-        console.log(data);
+        if (data.status === 200) ok.push(1);
       })
       .catch((err) => {
         return err;
@@ -119,6 +120,10 @@ export default function Survey() {
     dislikes.forEach((dislike) => {
       postRating(dislike, 0);
     });
+    if (ok.length === dislikes.length + likes.length) {
+      window.alert("نظر شما با موفقیت ثبت شد");
+      window.location = "./history";
+    }
   }
 
   return (

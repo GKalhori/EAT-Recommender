@@ -17,12 +17,13 @@ export default function History() {
       .getLatestTools()
       .then((data) => {
         setHistory(data.data);
-        setToolsId(() => {
-          return {
-            firstTool: data.data.at(0).tool.id - 1,
-            secondTool: data.data.at(1).tool.id - 1,
-          };
-        });
+        if (data.data.length !== 0)
+          setToolsId(() => {
+            return {
+              firstTool: data.data.at(0).tool.id - 1,
+              secondTool: data.data.at(1).tool.id - 1,
+            };
+          });
       })
       .catch((err) => {
         return err;
@@ -50,7 +51,11 @@ export default function History() {
         </div>
         <NavLink to={"/survey"}>
           <button
-            className="bg-blue-500 text-white rounded-md p-3 h-full hover:bg-blue-700"
+            className={`rounded-md p-3 h-full ${
+              history.length === 0
+                ? "bg-slate-300 hover:bg-slate-400"
+                : "text-white bg-blue-500 hover:bg-blue-700"
+            }`}
             disabled={history.length === 0}
           >
             نظرسنجی
@@ -59,8 +64,16 @@ export default function History() {
       </div>
       <div className="flex flex-col gap-2 mb-8 items-center w-4/5 mx-auto">
         {history.length === 0 ? (
-          <p className="bg-slate-200 rounded-md ">
+          <p className="border-2 border-red-300 rounded-md w-3/5 p-4 text-center">
             شما تا کنون از سیستم توصیه گر استفاده نکرده اید!
+            <br />
+            (برای استفاده پیشنهادات ما به صفحه زیر مراجعه کنید) <br />
+            <NavLink
+              to={"/questionnaire"}
+              className="text-blue-500 hover:text-blue-800"
+            >
+              پرسشنامه
+            </NavLink>
           </p>
         ) : (
           <>
