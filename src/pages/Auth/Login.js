@@ -29,7 +29,6 @@ export default function Login() {
       })
       .then((data) => {
         setLoading(false);
-        console.log(data);
         if (data.status === 200) {
           localStorage.setItem("code_id", data.data.code_id);
           localStorage.setItem("verifyType", "login");

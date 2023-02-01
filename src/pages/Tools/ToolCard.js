@@ -30,7 +30,7 @@ export default function ToolCard(props) {
           <p className="mt-2 text-justify">{props.description}</p>
         </div>
         <NavLink
-          to={`./${props.id}`}
+          to={`/tools/${props.id}`}
           className="self-end justify-end align-bottom"
         >
           <button className="py-2 px-3 bg-blue-500 text-gray-100 rounded-md hover:bg-blue-700">

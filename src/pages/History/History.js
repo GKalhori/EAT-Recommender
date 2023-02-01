@@ -6,6 +6,7 @@ import { tools } from "../../static/toolsData";
 import { NavLink } from "react-router-dom";
 
 export default function History() {
+  const [name, setName] = useState("");
   const [history, setHistory] = useState([]);
   const [toolsId, setToolsId] = useState({
     firstTool: null,
@@ -16,12 +17,13 @@ export default function History() {
     recommenderServices
       .getLatestTools()
       .then((data) => {
-        setHistory(data.data);
-        if (data.data.length !== 0)
+        setName(data.data.full_name);
+        setHistory(data.data.data);
+        if (data.data.data.length !== 0)
           setToolsId(() => {
             return {
-              firstTool: data.data.at(0).tool.id - 1,
-              secondTool: data.data.at(1).tool.id - 1,
+              firstTool: data.data.data.at(0).tool.id - 1,
+              secondTool: data.data.data.at(1).tool.id - 1,
             };
           });
       })
@@ -39,7 +41,8 @@ export default function History() {
             سوابق
           </h1>
           <p className="italic text-sm mt-1">
-            سابقه آخرین پیشنهادات داده شده به کاربر در این بخش نمایش داده میشود.
+            سابقه آخرین پیشنهادات داده شده به {name} در این بخش نمایش داده
+            میشود.
             <br />
             شما میتوانید پس از گذشت یک هفته از هر پیشنهاد، نظر خود را در رابطه
             با ویژگی های درخواستی و ابزار توصیه شده، در قالب پرسشنامه ای با ما
@@ -78,8 +81,8 @@ export default function History() {
         ) : (
           <>
             <ToolCard
-              name={tools.at(toolsId.firstTool).name}
               id={tools.at(toolsId.firstTool).id}
+              name={tools.at(toolsId.firstTool).name}
               img={tools.at(toolsId.firstTool).img}
               description={tools.at(toolsId.firstTool).description}
               rate={tools.at(toolsId.firstTool).rate}
@@ -87,8 +90,8 @@ export default function History() {
               voters={tools.at(toolsId.firstTool).voters}
             />
             <ToolCard
-              name={tools.at(toolsId.secondTool).name}
               id={tools.at(toolsId.secondTool).id}
+              name={tools.at(toolsId.secondTool).name}
               img={tools.at(toolsId.secondTool).img}
               description={tools.at(toolsId.secondTool).description}
               rate={tools.at(toolsId.secondTool).rate}

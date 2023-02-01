@@ -18,11 +18,11 @@ export default function Survey() {
     recommenderServices
       .getLatestTools()
       .then((data) => {
-        setHistory(data.data);
+        setHistory(data.data.data);
         setToolsId(() => {
           return {
-            firstTool: data.data.at(0).tool.id - 1,
-            secondTool: data.data.at(1).tool.id - 1,
+            firstTool: data.data.data.at(0).tool.id - 1,
+            secondTool: data.data.data.at(1).tool.id - 1,
           };
         });
       })
@@ -83,6 +83,7 @@ export default function Survey() {
                   type="radio"
                   name={item.id}
                   id={`good-${item.id}`}
+                  //checked={item.liked}
                   onChange={() => setStatues("like", item.id)}
                 />
               </div>
@@ -92,6 +93,7 @@ export default function Survey() {
                   type="radio"
                   name={item.id}
                   id={`bad-${item.id}`}
+                  //checked={item.liked !== null ? !item.liked : null}
                   onChange={() => setStatues("dislike", item.id)}
                 />
               </div>
