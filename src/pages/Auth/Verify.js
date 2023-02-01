@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import authServices from "../../api/authServices";
 import "../../App.css";
-import { Navigate } from "react-router-dom";
 
-export default function Login() {
-  let navigate = useNavigate();
+export default function Verify() {
   const [loading, setLoading] = useState(false);
+  const [otp, setOtp] = useState("");
   const [warning, setWarning] = useState(false);
-  const [phone, setPhone] = useState("");
   const [alert, setAlert] = useState({
     active: false,
     message: "",
@@ -16,32 +13,42 @@ export default function Login() {
 
   function checkEmpty() {
     setWarning(false);
-    if (phone === "") setWarning(true);
-    if (phone !== "") return true;
+    if (otp === "") setWarning(true);
+
+    if (otp !== "") return true;
     else return false;
   }
 
-  async function sendCode() {
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (checkEmpty()) login();
+  }
+
+  async function login() {
     setLoading(true);
     authServices
-      .login({
-        phone: phone,
+      .verify({
+        code_id: localStorage.getItem("code_id"),
+        code: otp,
       })
       .then((data) => {
         setLoading(false);
-        console.log(data);
         if (data.status === 200) {
-          localStorage.setItem("code_id", data.data.code_id);
-          localStorage.setItem("verifyType", "login");
-          navigate("/verify", { replace: true });
+          localStorage.setItem("token", data.data);
+          if (localStorage.getItem("verifyType") === "register")
+            window.alert("ثبت نام شما با موفقیت انجام شد");
+          else if (localStorage.getItem("verifyType") === "login")
+            window.alert("ورود شما با موفقیت انجام شد");
+          window.location = "/";
         } else {
-          if (data.data === "not found")
+          if (data.data === "wrong code")
             setAlert(() => {
               return {
                 active: true,
-                message: "شماره تلفن وارد شده در سیستم وجود ندارد!",
+                message: "کد وارد شده اشتباه است!",
               };
             });
+          else window.alert("ورود شما با مشکل مواجه شده است!");
         }
       })
       .catch((err) => {
@@ -49,10 +56,19 @@ export default function Login() {
       });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (checkEmpty()) sendCode();
-  }
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setAlert(() => {
+        return {
+          message: "",
+          active: false,
+        };
+      });
+    }, 2000);
+    return () => {
+      clearTimeout(timeId);
+    };
+  }, [alert]);
 
   return (
     <>
@@ -67,17 +83,17 @@ export default function Login() {
         <></>
       )}
       <form
-        className="auth-card py-5 px-6 my-14 mx-auto rounded-lg"
+        className="auth-card py-5 px-6 my-16 mx-auto rounded-lg"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col gap-5">
-          <h1 className="text-center text-lg">ورود</h1>
+          <h1 className="text-center text-lg">احراز هویت</h1>
           <input
-            name="phone"
+            name="otp"
             type="text"
-            placeholder="شماره تلفن همراه"
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
+            placeholder="کد پیامک شده"
+            value={otp}
+            onChange={(event) => setOtp(event.target.value)}
             className={`w-full h-11 rounded-lg py-0 px-3 text-sm ${
               warning ? "border border-red-500" : ""
             }`}
@@ -88,15 +104,9 @@ export default function Login() {
             className="flex flex-row items-center justify-center gap-1 w-full py-3 cursor-pointer text-white text-sm rounded-lg bg-slate-700 hover:bg-sky-900"
             type="submit"
           >
-            <span>دریافت کد</span>
+            <span>وارد شوید</span>
             <span className={loading ? "loader" : ""}></span>
           </button>
-          <small className="block text-center">
-            در سامانه عضو نیستید؟{" "}
-            <Link className="text-slate-700 hover:text-sky-900" to="/register">
-              ثبت نام کنید
-            </Link>
-          </small>
         </div>
       </form>
     </>

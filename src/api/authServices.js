@@ -8,6 +8,10 @@ class authServices {
   login(data) {
     return axios.post("/tools/login/", data);
   }
+
+  verify(code) {
+    return axios.post("/tools/verify/", code);
+  }
 }
 
 export default new authServices();

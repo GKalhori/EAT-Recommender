@@ -12,6 +12,7 @@ import Questionnaire from "./pages/Forms/Questionnaire";
 import Login from "./pages/Auth/Login";
 import History from "./pages/History/History";
 import Survey from "./pages/History/Survey";
+import Verify from "./pages/Auth/Verify";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/questionnaire" element={<Questionnaire />} />
         <Route path="/history" element={<History />} />
         <Route path="/survey" element={<Survey />} />
+        <Route path="/verify" element={<Verify />} />
       </Routes>
       <Footer />
     </Router>
